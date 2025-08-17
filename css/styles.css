@@ -1334,3 +1334,29 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* Back button on section pages */
+.back-button {
+  display: flex;
+  align-items: center;
+}
+
+.back-button a {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.back-button a:hover {
+  background-color: var(--light-grey);
+}
+
+.back-button svg {
+  margin-right: 0.5rem;
+}
