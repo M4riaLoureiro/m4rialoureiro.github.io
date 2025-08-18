@@ -209,7 +209,7 @@ header {
   justify-content: center;
   min-height: 80vh;
   background-color: var(--primary-color);
-  padding: 5rem 0;
+  padding: 2rem 0;
 }
 
 .hero-content {
@@ -391,7 +391,7 @@ header {
   margin-right: 1rem;
 }
 
-/* Contact Page */
+/* Contacts Page */
 .contact-section {
   padding: 5rem 0;
 }
@@ -803,7 +803,7 @@ footer {
   margin-right: 0.5rem;
 }
 
-/* Speaking Events Page */
+/* Talks Events Page */
 .events-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -880,7 +880,7 @@ footer {
   margin-right: 0.5rem;
 }
 
-/* Work Experience Page */
+/* Experience Page */
 .experience-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1028,7 +1028,7 @@ footer {
   margin-right: 0.5rem;
 }
 
-/* Associativism and Volunteering Pages */
+/* Associations Pages */
 .organization-grid {
   display: grid;
   grid-template-columns: 1fr;
