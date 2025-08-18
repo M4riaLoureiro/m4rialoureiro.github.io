@@ -222,38 +222,6 @@ document.addEventListener('DOMContentLoaded', () => {
     createBackToTopButton();
   }
 
-  // Add print functionality where appropriate
-  const addPrintButton = () => {
-    const contentSections = document.querySelectorAll('.education-section, .experience-section, .projects-section');
-    if (contentSections.length > 0) {
-      const printButton = document.createElement('button');
-      printButton.innerHTML = '🖨 Print this page';
-      printButton.className = 'print-button';
-      printButton.style.padding = '0.75rem 1.5rem';
-      printButton.style.margin = '2rem auto';
-      printButton.style.display = 'block';
-      printButton.style.backgroundColor = 'var(--secondary-color)';
-      printButton.style.border = 'none';
-      printButton.style.borderRadius = 'var(--border-radius)';
-      printButton.style.cursor = 'pointer';
-      printButton.style.fontWeight = '500';
-      printButton.style.transition = 'background-color 0.3s ease';
-      
-      printButton.addEventListener('mouseover', () => {
-        printButton.style.backgroundColor = 'var(--light-grey)';
-      });
-      
-      printButton.addEventListener('mouseout', () => {
-        printButton.style.backgroundColor = 'var(--secondary-color)';
-      });
-      
-      printButton.addEventListener('click', () => {
-        window.print();
-      });
-      
-      // Append after the first content section
-      contentSections[0].parentNode.insertBefore(printButton, contentSections[0].nextSibling);
-    }
-  };
+  
   
 });
