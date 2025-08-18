@@ -256,12 +256,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
   
-  // Check if we're on a page that might benefit from printing
-  if (
-    currentPage === 'education.html' || 
-    currentPage === 'experience.html' || 
-    currentPage === 'projects.html'
-  ) {
-    addPrintButton();
-  }
 });
