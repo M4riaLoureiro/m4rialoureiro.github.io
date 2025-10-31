@@ -1,10 +1,10 @@
 
 # Maria Loureiro Portfolio Website
 
-This repository contains the source code for Maria Loureiro's personal portfolio website. The site is a static multi-page website built with HTML, CSS, and JavaScript, showcasing sections such as publications, awards, education, experience, projects, and more.
+This repository contains the source code for Maria Loureiro's personal portfolio website. The site is a static multi-page website built with HTML, CSS, and JavaScript, showcasing sections such as articles, awards, education, experience, projects, and more.
 
 ## Features
-- **Multi-page static site:** Each section (e.g., publications, awards, contact) is a standalone HTML file, organized in the `pages/` directory.
+- **Multi-page static site:** Each section (e.g., articles, awards, contact) is a standalone HTML file, organized in the `pages/` directory.
 - **Consistent styling:** All pages use a shared stylesheet (`css/styles.css`).
 - **Global scripts:** Common JavaScript logic is centralized in `js/script.js`.
 - **Responsive design:** Mobile-friendly layout using CSS media queries.
@@ -13,7 +13,7 @@ This repository contains the source code for Maria Loureiro's personal portfolio
 ```
 ├── index.html
 ├── pages/
-│   ├── publications.html
+│   ├── articles.html
 │   ├── associations.html
 │   ├── awards.html
 │   ├── contact.html
@@ -21,6 +21,7 @@ This repository contains the source code for Maria Loureiro's personal portfolio
 │   ├── experience.html
 │   ├── projects.html
 │   ├── talks.html
+│   ├── volunteering.html
 ├── css/
 │   └── styles.css
 ├── images/

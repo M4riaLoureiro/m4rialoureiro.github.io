@@ -955,14 +955,14 @@ footer {
   color: var(--dark-grey);
 }
 
-/* Publications Page */
-.publications-grid {
+/* Articles Page */
+.articles-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 
-.publication-card {
+.article-card {
   background-color: var(--primary-color);
   border-radius: var(--border-radius);
   overflow: hidden;
@@ -970,32 +970,32 @@ footer {
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
-.publication-card:hover {
+.article-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-md);
 }
 
-.publication-header {
+.article-header {
   padding: 1.5rem;
   background-color: var(--secondary-color);
   border-bottom: 1px solid var(--light-grey);
 }
 
-.publication-header h3 {
+.article-header h3 {
   margin-bottom: 0.5rem;
   font-size: 1.25rem;
 }
 
-.publication-publisher {
+.article-publisher {
   font-weight: 500;
   color: var(--dark-grey);
 }
 
-.publication-body {
+.article-body {
   padding: 1.5rem;
 }
 
-.publication-date {
+.article-date {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
@@ -1003,15 +1003,15 @@ footer {
   margin-top: 0.4rem;
 }
 
-.publication-date svg {
+.article-date svg {
   margin-right: 0.5rem;
 }
 
-.publication-link {
+.article-link {
   margin-top: 1rem;
 }
 
-.view-publication {
+.view-article {
   display: inline-flex;
   align-items: center;
   color: var(--link-color);
@@ -1019,12 +1019,12 @@ footer {
   transition: color var(--transition-speed) ease;
 }
 
-.view-publication:hover {
+.view-article:hover {
   color: var(--link-hover);
   text-decoration: underline;
 }
 
-.view-publication svg {
+.view-article svg {
   margin-right: 0.5rem;
 }
 
@@ -1262,7 +1262,7 @@ footer {
   .projects-grid, 
   .events-grid, 
   .experience-grid,
-  .publications-grid,
+  .articles-grid,
   .organization-grid,
   .awards-grid {
     grid-template-columns: 1fr;
