@@ -1367,3 +1367,323 @@ footer {
 .back-button svg {
   margin-right: 0.5rem;
 }
+
+/* ============================
+   Animations & Visual Polish
+   ============================ */
+
+/* Fade-in animation for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Stagger animation for cards */
+.experience-card,
+.education-card,
+.article-card,
+.event-card,
+.award-card,
+.organization-card,
+.project-card,
+.featured-card {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.experience-card:nth-child(1),
+.education-card:nth-child(1),
+.article-card:nth-child(1),
+.event-card:nth-child(1),
+.award-card:nth-child(1),
+.organization-card:nth-child(1),
+.project-card:nth-child(1),
+.featured-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.experience-card:nth-child(2),
+.education-card:nth-child(2),
+.article-card:nth-child(2),
+.event-card:nth-child(2),
+.award-card:nth-child(2),
+.organization-card:nth-child(2),
+.project-card:nth-child(2),
+.featured-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.experience-card:nth-child(3),
+.education-card:nth-child(3),
+.article-card:nth-child(3),
+.event-card:nth-child(3),
+.award-card:nth-child(3),
+.organization-card:nth-child(3),
+.project-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.experience-card:nth-child(4),
+.education-card:nth-child(4),
+.article-card:nth-child(4),
+.event-card:nth-child(4),
+.award-card:nth-child(4),
+.organization-card:nth-child(4),
+.project-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.experience-card:nth-child(n+5),
+.education-card:nth-child(n+5),
+.article-card:nth-child(n+5),
+.event-card:nth-child(n+5),
+.award-card:nth-child(n+5),
+.organization-card:nth-child(n+5),
+.project-card:nth-child(n+5) {
+  animation-delay: 0.5s;
+}
+
+/* Enhanced hover effects for cards */
+.experience-card,
+.education-card,
+.article-card,
+.event-card,
+.award-card,
+.organization-card,
+.project-card,
+.featured-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.experience-card:hover,
+.education-card:hover,
+.article-card:hover,
+.event-card:hover,
+.award-card:hover,
+.organization-card:hover,
+.project-card:hover,
+.featured-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Smooth link transitions */
+.experience-company a,
+.article-source,
+.view-certificate,
+.view-article,
+.view-event,
+.view-award,
+.view-organization,
+.view-project {
+  transition: all 0.3s ease;
+}
+
+.experience-company a:hover,
+.article-source:hover,
+.view-certificate:hover,
+.view-article:hover,
+.view-event:hover,
+.view-award:hover,
+.view-organization:hover,
+.view-project:hover {
+  transform: translateX(3px);
+  color: var(--link-hover);
+}
+
+/* Footer icon animations */
+.footer-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-links a:hover .footer-icon {
+  transform: scale(1.15);
+  color: var(--link-hover);
+}
+
+/* Header navigation hover effect */
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::before {
+  width: 100%;
+}
+
+.nav-links a.active::before {
+  width: 0;
+}
+
+/* Improved spacing and white space */
+section {
+  padding: 4rem 0;
+}
+
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.experience-grid,
+.education-grid,
+.articles-grid,
+.events-grid,
+.awards-grid,
+.organization-grid,
+.projects-grid,
+.featured-grid {
+  gap: 2rem;
+}
+
+/* Hero section enhancements */
+.hero h1 {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero p {
+  animation: fadeInUp 1s ease-out;
+  animation-delay: 0.2s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.hero .hero-links {
+  animation: fadeInUp 1.2s ease-out;
+  animation-delay: 0.4s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Status badges with subtle animations */
+.experience-status,
+.date-badge {
+  transition: transform 0.3s ease;
+}
+
+.experience-card:hover .experience-status,
+.article-card:hover .date-badge {
+  transform: scale(1.05);
+}
+
+/* Featured section styles */
+.featured-in {
+  background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.featured-card {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.featured-logo {
+  margin-bottom: 1rem;
+}
+
+.featured-icon {
+  font-size: 2.5rem;
+}
+
+.featured-content h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent-color);
+}
+
+.featured-title {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.featured-date {
+  font-size: 0.75rem;
+  color: var(--medium-grey);
+  margin-bottom: 0;
+}
+
+.featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.featured-card:hover::before {
+  left: 100%;
+}
+
+/* Responsive featured grid */
+@media (max-width: 950px) {
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Smooth scroll behavior for all internal links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced focus states for accessibility */
+a:focus,
+button:focus {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+/* Loading state animation (for future use) */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
