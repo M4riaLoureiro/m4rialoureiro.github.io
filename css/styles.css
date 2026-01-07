@@ -1687,3 +1687,77 @@ button:focus {
 .loading {
   animation: pulse 1.5s ease-in-out infinite;
 }
+
+/* Section Navigation (submenu for pages with multiple sections) */
+.section-nav-menu {
+  background-color: var(--secondary-color);
+  border-bottom: 2px solid var(--light-grey);
+  position: sticky;
+  top: 70px;
+  z-index: 100;
+  margin-bottom: 3rem;
+}
+
+.section-nav-menu .container {
+  padding: 0;
+}
+
+.section-nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.section-nav-links::-webkit-scrollbar {
+  height: 3px;
+}
+
+.section-nav-links::-webkit-scrollbar-track {
+  background: var(--light-grey);
+}
+
+.section-nav-links::-webkit-scrollbar-thumb {
+  background: var(--medium-grey);
+  border-radius: 3px;
+}
+
+.section-nav-links li {
+  flex-shrink: 0;
+}
+
+.section-nav-links a {
+  display: block;
+  padding: 1rem 2rem;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+}
+
+.section-nav-links a:hover {
+  color: var(--accent-color);
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.section-nav-links a.active {
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+@media (max-width: 768px) {
+  .section-nav-menu {
+    top: 60px;
+  }
+  
+  .section-nav-links a {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.85rem;
+  }
+}

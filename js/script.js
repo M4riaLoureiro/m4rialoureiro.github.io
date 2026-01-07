@@ -222,6 +222,52 @@ document.addEventListener('DOMContentLoaded', () => {
     createBackToTopButton();
   }
 
+  // Section navigation active state handling
+  const sectionNavLinks = document.querySelectorAll('.section-nav-links a');
+  
+  if (sectionNavLinks.length > 0) {
+    // Handle click on section nav links
+    sectionNavLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        // Remove active class from all section nav links
+        sectionNavLinks.forEach(l => l.classList.remove('active'));
+        // Add active class to clicked link
+        this.classList.add('active');
+      });
+    });
+    
+    // Update active state based on scroll position
+    const observerOptions = {
+      root: null,
+      rootMargin: '-100px 0px -66%',
+      threshold: 0
+    };
+    
+    const observerCallback = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          sectionNavLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    };
+    
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    // Observe all sections that have IDs matching section nav links
+    sectionNavLinks.forEach(link => {
+      const targetId = link.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        observer.observe(targetSection);
+      }
+    });
+  }
   
   
 });
