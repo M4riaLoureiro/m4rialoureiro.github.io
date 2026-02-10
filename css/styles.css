@@ -386,6 +386,14 @@ header {
   margin-bottom: 2rem;
 }
 
+.section-description {
+  color: var(--dark-grey);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  margin-top: -1rem;
+  line-height: 1.5;
+}
+
 .header-icon {
   font-size: 2.5rem;
   margin-right: 1rem;
