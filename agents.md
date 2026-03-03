@@ -309,28 +309,29 @@ Used in: `community.html` (#associations-leadership)
 | Completed | `experience-card` | `experience-status past` | `Past` |
 
 ### External Links
-All external links must have:
+All external links must have both attributes in the HTML:
 ```html
 target="_blank" rel="noopener noreferrer"
 ```
-The JS in `script.js` automatically adds `rel="noopener noreferrer"` to `target="_blank"` links, but it's best practice to include it in the HTML anyway.
+
+### Meta Descriptions
+Every active page has a `<meta name="description">` tag. When adding a new page, include one after the viewport meta tag.
 
 ### Where to Add New Content
 
-| Content type | Primary file | Also add to |
-|---|---|---|
-| Written article / blog post | `media.html` → `#articles-publications` | `articles.html` |
-| Interview / feature about Maria | `media.html` → `#featured-in` | — |
-| Talk / workshop | `media.html` → `#talks-workshops` | `talks.html` |
-| Award | `media.html` → `#awards` | `awards.html` |
-| Work experience | `experience.html` → `#work-experience` | — |
-| Project | `experience.html` → `#technical-projects` | — |
-| Education | `education.html` → `#formal-education` | — |
-| Certification | `education.html` → `#certifications` | — |
-| Association / leadership | `community.html` → `#associations-leadership` | — |
-| Volunteering | `community.html` → `#volunteering` | — |
+| Content type | Primary file |
+|---|---|
+| Written article / blog post | `media.html` → `#articles-publications` |
+| Interview / feature about Maria | `media.html` → `#featured-in` |
+| Talk / workshop | `media.html` → `#talks-workshops` |
+| Award | `media.html` → `#awards` |
+| Work experience | `experience.html` → `#work-experience` |
+| Project | `experience.html` → `#technical-projects` |
+| Education | `education.html` → `#formal-education` |
+| Certification | `education.html` → `#certifications` |
+| Association / leadership | `community.html` → `#associations-leadership` |
+| Volunteering | `community.html` → `#volunteering` |
 
-> **Note on legacy pages**: `articles.html`, `talks.html`, and `awards.html` are standalone legacy pages that duplicate content from `media.html`. When adding new content, add it to `media.html` first. The user will confirm whether to also update the legacy pages.
 
 ---
 
