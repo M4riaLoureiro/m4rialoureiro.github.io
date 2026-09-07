@@ -68,19 +68,34 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handle form submissions (if form exists)
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mvkowwoe';
+
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      
+
       const formStatus = document.getElementById('formStatus');
       formStatus.textContent = 'Sending message...';
       formStatus.className = 'form-status sending';
-      
-      // Simulate form submission (replace with actual form submission)
-      setTimeout(() => {
-        formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
-        formStatus.className = 'form-status success';
-        contactForm.reset();
-      }, 1500);
+
+      fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(response => {
+          if (response.ok) {
+            formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
+            formStatus.className = 'form-status success';
+            contactForm.reset();
+          } else {
+            formStatus.textContent = 'Something went wrong. Please try emailing me directly.';
+            formStatus.className = 'form-status error';
+          }
+        })
+        .catch(() => {
+          formStatus.textContent = 'Something went wrong. Please try emailing me directly.';
+          formStatus.className = 'form-status error';
+        });
     });
   }
   

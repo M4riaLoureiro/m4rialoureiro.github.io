@@ -6,7 +6,9 @@
   <meta name="description" content="Contact Maria Loureiro via email, LinkedIn, GitHub, or Google Scholar.">
   <title>Contacts | Maria Loureiro</title>
   <link rel="stylesheet" href="../css/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="../assets/images/maria-profile-favicon.png">
 </head>
 <body>
@@ -83,7 +85,26 @@
               </a>
             </div>
           </div>
-          
+
+          <div class="contact-form-container">
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="submit-button">Send Message</button>
+              <div id="formStatus" class="form-status"></div>
+            </form>
+          </div>
+
         </div>
 
 
@@ -119,22 +140,5 @@
   </footer>
   
   <script src="../js/script.js"></script>
-  <script>
-    // Contacts form handler
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const formStatus = document.getElementById('formStatus');
-      formStatus.textContent = 'Sending message...';
-      formStatus.className = 'form-status sending';
-      
-      // Simulate form submission (replace with actual form submission)
-      setTimeout(() => {
-        formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
-        formStatus.className = 'form-status success';
-        document.getElementById('contactForm').reset();
-      }, 1500);
-    });
-  </script>
 </body>
 </html>
