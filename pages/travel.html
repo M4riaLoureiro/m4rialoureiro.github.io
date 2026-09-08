@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&family=Work+Sans:wght@300;400;500;600&family=Homemade+Apple&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&family=Work+Sans:wght@300;400;500;600&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="../assets/images/maria-profile-favicon.png">
 </head>
 <body>
@@ -35,7 +35,7 @@
         <div class="section-header">
           <h2>Twenty-odd countries so far, most of it just curiosity, not work.</h2>
         </div>
-        <p class="section-description">A scuba course here, a lost passport there. A small, personal map. Every highlighted country is somewhere I've actually been: the ones in deeper terracotta are the few I've written a short story about, and those are the ones you can hover or tab through for the story.</p>
+        <p class="section-description">A scuba course here, a lost passport there. A small, personal map. Every highlighted country is somewhere I've actually been: the ones in deeper terracotta are the few I've written a fun fact about, and those are the ones you can hover or tab through for the story.</p>
 
         <div class="travel-map-layout">
           <div class="travel-map-wrap">
@@ -451,6 +451,10 @@
           <div class="travel-legend-row"><span class="travel-legend-swatch travel-legend-swatch--gold"></span> Visited</div>
         </div>
 
+        <div class="quote-card quote-card--olive travel-note">
+          <p>This map is mostly driven by curiosity outside my own field — more cultures, more people, more customs, more landscapes. Lately it's turned into a bit of a hobby of its own: thinking about how tourism can be more sustainable, and how to travel with a little more conscience, closer to the communities you're actually passing through.</p>
+        </div>
+
         <p class="travel-map-attribution">Map: <a href="https://github.com/flekschas/simple-world-map" target="_blank" rel="noopener noreferrer" class="text-link">Simple World Map</a> by Al MacDonald &amp; Fritz Lekschas, licensed <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer" class="text-link">CC BY-SA 3.0</a>.</p>
       </div>
     </section>
@@ -496,25 +500,25 @@
     // Travel map: country -> story lookup, keyed by ISO 3166-1 alpha-2 code.
     // Page-specific logic stays here rather than in js/script.js, per CLAUDE.md.
     const travelStories = {
-      PT: "Home country, where Maria has lived and is based.",
-      US: "First visit in 2026, for the US Life Sciences Symposium in New York City. Also visited Boston, including MIT and the university's overall atmosphere.",
-      MX: "A 2–3 week car road trip through different towns and cities, plus a scuba diving certification course along the way.",
-      CO: "Three months living in Medellín and Bogotá as part of an explorer programme offered by Loka, the company Maria currently works for. Also explored the country more broadly.",
-      MA: "Maria's first trip outside Europe.",
+      PT: "My home country, where I've lived and am based.",
+      US: "My first visit was in 2026, for the US Life Sciences Symposium in New York City. I also visited Boston, including MIT and the university's overall atmosphere.",
+      MX: "A three-week road trip through different towns and cities, plus a scuba diving certification course along the way.",
+      CO: "Three months living in Medellín and Bogotá as part of an explorer programme offered by Loka, the company I currently work for. I also explored the country more broadly.",
+      MA: "My first trip outside Europe.",
       ES: null,
-      FR: "Visited Alsace, and lived for 6 months in Toulouse, in the south.",
-      GB: "Maria's first trip abroad alone, and her first flight, at age 16.",
+      FR: "I visited Alsace, and lived for 6 months in Toulouse, in the south.",
+      GB: "My first trip abroad alone, and my first flight, at age 16.",
       NL: "A one-week cycling tour.",
       BE: null,
       LU: null,
-      CH: "Visited for conferences; also organized a programme in 2026 that brought 15 Portuguese people to Switzerland to learn about the Basel ecosystem, through GenAI-related work.",
+      CH: "I've visited for conferences, and also organized a programme in 2026 that brought 15 Portuguese people to Switzerland to learn about the Basel ecosystem, through GenAI-related work.",
       IT: null,
       GR: null,
       AL: null,
       SE: null,
       TH: "Part of a month-long backpacking trip through Southeast Asia.",
       VN: "Part of the same month-long backpacking trip as Thailand.",
-      SG: "Visited. Also where Maria lost her passport for the first time.",
+      SG: "Visited — also where I lost my passport for the first time.",
       ID: "A separate month-long backpacking trip, exploring different islands within the country."
     };
 
