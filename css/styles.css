@@ -2413,11 +2413,16 @@ button:focus {
   cursor: default;
 }
 
+.travel-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
 .travel-legend {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  margin-top: 1.5rem;
   font-size: 0.9rem;
   color: var(--dark-grey);
 }
