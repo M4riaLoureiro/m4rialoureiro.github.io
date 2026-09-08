@@ -113,6 +113,19 @@ Used for pull-quote-style highlights: homepage "Some things I've written" and `m
 
 Border/rotation modifiers: `quote-card--terracotta` / `--olive` / `--gold`, `quote-card--rotate-1` / `--rotate-2` / `--rotate-3`. Vary the color and rotation across cards in the same grid — don't repeat the same modifier back to back.
 
+The `quote-card-attribution` span is optional — omit it when the card is highlighting Maria's own words rather than quoting someone else (e.g. the homepage hero's `quote-card quote-card--gold hero-highlight` callout, which has no rotation modifier and no attribution).
+
+### Highlight callout
+Used to pull a paragraph out of flowing text so it doesn't get skimmed past — currently the homepage's "Fun fact" travel teaser (`.travel-callout`, at the end of the narrative section). Flat translucent background, colored left border (no rotation), a `kicker` label above an italic-serif line, ending in a `text-link`.
+
+```html
+<div class="travel-callout">
+  <span class="kicker" style="color: var(--terracotta);">Fun fact</span>
+  <p>Personal, italic-serif line.</p>
+  <a href="pages/travel.html" class="text-link">See the map &rarr;</a>
+</div>
+```
+
 ### Photo placeholder
 Used on the homepage narrative sections until real photos are dropped in.
 
@@ -142,6 +155,10 @@ Standalone oversized quote with a decorative quotation mark, used sparingly (cur
 ### Date Format
 - Timeline rows use short form: `Mon Year` or `Mon Year – Current` (e.g. `Jul 2024 – Current`), or a plain year range for education/associations.
 - For year-only fields (awards): just the 4-digit year.
+
+### Voice
+- Site copy is written in first person ("I", "my"), not third person about Maria — this includes the `travelStories` country legends in `pages/travel.html`, which were rewritten from third to first person.
+- Avoid AI-writing tells: em dashes used as a substitute for a period, and hedge words like "even" tacked onto a sentence for false emphasis. Prefer two plain sentences.
 
 ### Ongoing marker
 Add `<span class="timeline-dot"></span>` next to the title in `.timeline-title-row` for current/ongoing roles. Past roles have no dot.
