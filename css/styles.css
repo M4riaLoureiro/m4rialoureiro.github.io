@@ -711,6 +711,14 @@ header {
 
 .contact-intro {
   font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.contact-availability {
+  font-family: var(--font-headline);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--muted);
   margin-bottom: 2rem;
 }
 
