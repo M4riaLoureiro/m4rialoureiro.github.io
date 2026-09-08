@@ -6,7 +6,7 @@ This document contains everything an AI agent needs to understand, maintain, and
 
 ## Project Overview
 
-A static personal portfolio website for Maria Loureiro (ML Engineer, Bioengineering background). Hosted on GitHub Pages. No build process — pure HTML, CSS, and vanilla JavaScript.
+A static personal portfolio website for Maria Loureiro (ML Engineer, Bioengineering background). Hosted on GitHub Pages. No build process — pure HTML, CSS, and vanilla JavaScript. Visual identity is a warm editorial style: serif headlines, a paper-colored background, and terracotta/olive/gold accents — not a corporate resume look.
 
 ---
 
@@ -14,26 +14,24 @@ A static personal portfolio website for Maria Loureiro (ML Engineer, Bioengineer
 
 ```
 /
-├── index.html                        # Homepage (hero + about + featured in)
+├── index.html                        # Homepage (narrative hero + story sections + selected writing)
 ├── agents.md                         # This file
 ├── CLAUDE.md -> agents.md            # Symlink for Claude Code
 ├── css/
-│   └── styles.css                    # Single stylesheet (~1800 lines)
+│   └── styles.css                    # Single stylesheet
 ├── js/
-│   └── script.js                     # Single JS file (~273 lines)
+│   └── script.js                     # Single JS file
 ├── assets/
 │   └── images/
 │       ├── maria-profile.jpeg        # Profile photo (displayed 160x160px circular)
 │       └── maria-profile-favicon.png # Favicon
 ├── pages/
-│   ├── media.html                    # Articles, Talks, Awards, Featured In (MAIN content hub)
+│   ├── media.html                    # Writing, Talks, Awards, Press (MAIN content hub)
 │   ├── experience.html               # Work experience & technical projects
 │   ├── education.html                # Formal education & certifications
 │   ├── community.html                # Associations & volunteering
-│   ├── contact.html                  # Contact methods
-│   ├── articles.html                 # Legacy articles-only page (kept for older nav)
-│   ├── talks.html                    # Legacy talks-only page
-│   └── awards.html                   # Legacy awards-only page
+│   ├── contact.html                  # Contact methods (no contact form — email only)
+│   └── travel.html                   # Personal travel map (secondary page, not in main nav)
 └── .github/
     └── copilot-instructions.md
 ```
@@ -45,17 +43,19 @@ A static personal portfolio website for Maria Loureiro (ML Engineer, Bioengineer
 ### Main Nav (appears in every page header)
 ```
 About → index.html
-Work & Projects → experience.html
+Work → experience.html
 Education → education.html
-Community Impact → community.html
-Media & Recognition → media.html   ← primary content hub
-Contacts → contact.html
+Community → community.html
+Media → media.html   ← primary content hub
+Contact → contact.html
 ```
 
-The active page gets `class="active"` on its `<a>` tag. The hamburger menu is shown below 950px.
+Nav is a slim top bar: an italic serif wordmark ("Maria Loureiro") on the left, plain uppercase links on the right. There is **no hamburger menu** — on narrow screens the links simply stack under the wordmark (`.navbar` becomes `flex-direction: column`). Do not reintroduce a hamburger/icon-drawer pattern. The active page gets `class="active"` on its `<a>` tag. The same link set (minus the wordmark) repeats in the footer as `.footer-nav-links`.
+
+`travel.html` is intentionally not in the main nav — it's linked from the homepage travel teaser paragraph and from its own footer.
 
 ### Section Nav (inside multi-section pages)
-Pages with multiple sections have a sticky secondary nav bar `.section-nav-menu` that updates its active link via IntersectionObserver as the user scrolls.
+`experience.html`, `education.html`, and `community.html` have a sticky secondary nav bar `.section-nav-menu` that updates its active link via IntersectionObserver as the user scrolls. `media.html` instead uses a simple `.jump-nav-links` list (Writing / Talks / Awards / Press) since its sections are shorter.
 
 ---
 
@@ -63,232 +63,73 @@ Pages with multiple sections have a sticky secondary nav bar `.section-nav-menu`
 
 | Page | Sections | IDs |
 |------|----------|-----|
-| index.html | Hero, About, Featured In | `#hero`, `#about`, `#featured-in` |
+| index.html | Hero, Credibility strip, Narrative stories (Loka, Gen-H, Global Shapers, Davos), Selected writing, CTA | `#hero`, `#credibility`, `#narrative`, `#writing`, `#cta` |
 | experience.html | Work Experience, Technical Projects | `#work-experience`, `#technical-projects` |
 | education.html | Formal Education, Certifications | `#formal-education`, `#certifications` |
 | community.html | Associations & Leadership, Volunteering | `#associations-leadership`, `#volunteering` |
-| media.html | Articles & Publications, Talks & Workshops, Awards, Featured In | `#articles-publications`, `#talks-workshops`, `#awards`, `#featured-in` |
+| media.html | Writing, Talks, Awards, Press | `#writing`, `#talks`, `#awards`, `#press` |
 | contact.html | Contact | — |
+| travel.html | Interactive world map | — |
 
 ---
 
 ## HTML Component Patterns
 
-All components follow the same header/body split. Copy these exactly when adding new entries.
-
-### Article / Publication Card
-Used in: `media.html` (#articles-publications), `articles.html`
+### Editorial timeline row
+Used for long chronological lists: `experience.html` (work + projects), `education.html` (degrees + certifications), `community.html` (associations + volunteering), and `media.html` (Writing, Talks, Press). Rows sit inside a `.timeline` wrapper, hairline-divided, with a date column on the left.
 
 ```html
-<div class="article-card">
-  <div class="article-header">
-    <h3>Article Title</h3>
-    <div class="article-publisher">Publisher Name</div>
-  </div>
-  <div class="article-body">
-    <div class="article-date">Month Day, Year</div>
-    <div class="article-link">
-      <a href="https://..." target="_blank" class="view-article">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
-        </svg>
-        Read Article
-      </a>
-    </div>
-  </div>
-</div>
-```
-
-Link label variants: `Read Article`, `Read on LinkedIn`, `View Thesis`, `View on PhysioNet`, `Listen on Spotify`.
-
-### Event / Talk Card
-Used in: `media.html` (#talks-workshops), `talks.html`
-
-```html
-<div class="event-card">
-  <div class="event-header">
-    <h3>Talk Title</h3>
-    <div class="event-name">Conference or Event Name</div>
-  </div>
-  <div class="event-body">
-    <div class="event-detail">
-      <div class="event-value">Month Day, Year</div>
-    </div>
-    <div class="event-link">
-      <a href="https://..." target="_blank" class="view-event">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
-        </svg>
-        View Recording
-      </a>
-    </div>
-  </div>
-</div>
-```
-
-Link label variants: `View Recording`, `View on LinkedIn`, `Watch on YouTube`, `Listen on Spotify`.
-
-### Award Card
-Used in: `media.html` (#awards), `awards.html`
-
-```html
-<div class="award-card">
-  <div class="award-header">
+<div class="timeline">
+  <div class="timeline-row">
+    <div class="timeline-date">Month Year – Present</div>
     <div>
-      <h3>Award Title</h3>
-      <div class="award-competition">Awarding Organization · Sub-entity</div>
-    </div>
-  </div>
-  <div class="award-body">
-    <div class="award-detail">
-      <div class="award-label">Year:</div>
-      <div class="award-value">2026</div>
-    </div>
-    <div class="award-description">
-      <p>Description of the award and what was achieved.</p>
-    </div>
-  </div>
-</div>
-```
-
-### Experience Card
-Used in: `experience.html`, `community.html`
-
-```html
-<div class="experience-card ongoing">   <!-- or just "experience-card" for past roles -->
-  <div class="experience-header">
-    <h3>Position Title</h3>
-    <div class="experience-company">
-      <a href="https://company-website.com">Company Name</a>
-    </div>
-  </div>
-  <div class="experience-body">
-    <div class="experience-detail">
-      <div class="experience-label">Location:</div>
-      <div class="experience-value">City, Country (or Remote)</div>
-    </div>
-    <div class="experience-detail">
-      <div class="experience-label">Duration:</div>
-      <div class="experience-value">Month Year – Present (or end date)</div>
-    </div>
-    <div class="experience-detail">
-      <div class="experience-value">
-        <p>Description of role and responsibilities.</p>
+      <div class="timeline-title-row">
+        <h3>Role / Item Title</h3>
+        <span class="timeline-dot"></span>  <!-- only for ongoing/current items -->
       </div>
-    </div>
-    <div class="experience-status ongoing">Ongoing</div>  <!-- or class="past" with text "Past" -->
-  </div>
-</div>
-```
-
-Add `class="ongoing"` to the card and status div for current roles. Past roles have no modifier class on the card.
-
-### Project Card
-Used in: `experience.html` (#technical-projects)
-
-```html
-<div class="project-card">
-  <div class="project-header">
-    <h3>Project Title</h3>
-  </div>
-  <div class="project-body">
-    <div class="project-detail">
-      <div class="project-label">Context:</div>
-      <div class="project-value">Description of context</div>
-    </div>
-    <div class="project-detail">
-      <div class="project-label">Date:</div>
-      <div class="project-value">Year</div>
-    </div>
-    <div class="project-detail">
-      <div class="project-label">Grade:</div>
-      <div class="project-value">e.g., 19/20</div>
-    </div>
-    <div class="project-link">
-      <a href="https://github.com/..." target="_blank" class="view-project">
-        View on GitHub
-      </a>
-    </div>
-  </div>
-</div>
-```
-
-### Education Card
-Used in: `education.html` (#formal-education)
-
-```html
-<div class="education-card">
-  <div class="education-header">
-    <h3>Degree Title</h3>
-    <div class="education-institution">Institution Name</div>
-  </div>
-  <div class="education-body">
-    <div class="education-detail">
-      <div class="education-label">Specialization:</div>
-      <div class="education-value">Area of study</div>
-    </div>
-    <div class="education-detail">
-      <div class="education-label">Grade:</div>
-      <div class="education-value">e.g., 18/20</div>
-    </div>
-    <div class="education-detail">
-      <div class="education-label">Period:</div>
-      <div class="education-value">Year – Year</div>
-    </div>
-  </div>
-</div>
-```
-
-### Certification Card
-Used in: `education.html` (#certifications)
-
-```html
-<div class="certification-card">
-  <div class="certification-header">
-    <h3>Certification Name</h3>
-    <div class="certification-institution">Issuing Organization</div>
-  </div>
-  <div class="certification-body">
-    <div class="certification-detail">
-      <div class="certification-label">Issued:</div>
-      <div class="certification-value">Month Year</div>
-    </div>
-    <div class="certification-detail">
-      <div class="certification-label">Expires:</div>
-      <div class="certification-value">Month Year (or "No expiration")</div>
-    </div>
-    <div class="certification-link">
-      <a href="https://..." target="_blank" class="view-certificate">View Certificate</a>
-    </div>
-  </div>
-</div>
-```
-
-### Organization Card
-Used in: `community.html` (#associations-leadership)
-
-```html
-<div class="organization-card">
-  <div class="organization-header">
-    <h3>Role / Position Title</h3>
-    <div class="organization-name">Organization Name</div>
-  </div>
-  <div class="organization-body">
-    <div class="organization-detail">
-      <div class="organization-label">Period:</div>
-      <div class="organization-value">Year – Present (or end year)</div>
-    </div>
-    <div class="organization-detail">
-      <div class="organization-value">
-        <p>Description of role and impact.</p>
+      <div class="timeline-org">Org / publisher — other metadata</div>
+      <div class="timeline-desc">
+        <p>Description text.</p>
       </div>
-    </div>
-    <div class="organization-link">
-      <a href="https://..." target="_blank" class="view-organization">Learn More</a>
+      <a href="https://..." target="_blank" rel="noopener noreferrer" class="timeline-link">Read Article</a>
     </div>
   </div>
 </div>
 ```
+
+Link label variants (kept from the original card pattern): `Read Article`, `Read on LinkedIn`, `View Thesis`, `View on PhysioNet`, `Listen on Spotify`, `View Recording`, `Watch on YouTube`, `Visit Website`, `View Certificate`, `View on GitHub`.
+
+For long lists, wrap the `.timeline` in `data-expandable`, mark items beyond the initial visible set with `expandable-hidden`, and end with a `.show-more-btn` (pill button with chevron). The toggle behavior lives in `js/script.js` — do not duplicate it per-page.
+
+### Quote-card
+Used for pull-quote-style highlights: homepage "Some things I've written" and `media.html` Awards. Flat, translucent background, colored left border (no rounded-corner-with-shadow look), slight rotation for a scrapbook feel.
+
+```html
+<div class="quote-card quote-card--terracotta quote-card--rotate-1">
+  <p>"Quoted text."</p>
+  <span class="quote-card-attribution">Context — Publisher, Year</span>
+</div>
+```
+
+Border/rotation modifiers: `quote-card--terracotta` / `--olive` / `--gold`, `quote-card--rotate-1` / `--rotate-2` / `--rotate-3`. Vary the color and rotation across cards in the same grid — don't repeat the same modifier back to back.
+
+### Photo placeholder
+Used on the homepage narrative sections until real photos are dropped in.
+
+```html
+<div class="photo-placeholder photo-placeholder--terracotta photo-placeholder--rotate-right">
+  <div class="photo-placeholder-block"></div>
+  <span class="photo-placeholder-caption">Caption text</span>
+</div>
+```
+
+Color modifiers: `--terracotta` / `--olive` / `--gold`. Rotation modifiers: `--rotate-left` / `--rotate-right`.
+
+### Kicker
+Small uppercase colored label above a heading: `<span class="kicker">Work</span>`.
+
+### Pull-quote
+Standalone oversized quote with a decorative quotation mark, used sparingly (currently only the homepage's "luck" quote): `<blockquote class="pull-quote">...</blockquote>`.
 
 ---
 
@@ -296,17 +137,14 @@ Used in: `community.html` (#associations-leadership)
 
 ### Ordering
 - **All content is chronological, newest first.**
-- This applies to articles, talks, awards, experience, and education.
+- This applies to writing, talks, press, awards, experience, and education.
 
 ### Date Format
-- Always use: `Month Day, Year` — e.g., `February 18, 2026`
-- For year-only fields (awards, education periods): just the 4-digit year.
+- Timeline rows use short form: `Mon Year` or `Mon Year – Current` (e.g. `Jul 2024 – Current`), or a plain year range for education/associations.
+- For year-only fields (awards): just the 4-digit year.
 
-### Status Classes
-| Status | Card class | Status div class | Badge text |
-|--------|-----------|-----------------|------------|
-| Active/current | `experience-card ongoing` | `experience-status ongoing` | `Ongoing` |
-| Completed | `experience-card` | `experience-status past` | `Past` |
+### Ongoing marker
+Add `<span class="timeline-dot"></span>` next to the title in `.timeline-title-row` for current/ongoing roles. Past roles have no dot.
 
 ### External Links
 All external links must have both attributes in the HTML:
@@ -321,76 +159,68 @@ Every active page has a `<meta name="description">` tag. When adding a new page,
 
 | Content type | Primary file |
 |---|---|
-| Written article / blog post | `media.html` → `#articles-publications` |
-| Interview / feature about Maria | `media.html` → `#featured-in` |
-| Talk / workshop | `media.html` → `#talks-workshops` |
-| Award | `media.html` → `#awards` |
+| Written article / blog post | `media.html` → `#writing` |
+| Talk / workshop / podcast appearance | `media.html` → `#talks` |
+| Award | `media.html` → `#awards` (as a quote-card) |
+| Interview / feature about Maria | `media.html` → `#press` |
 | Work experience | `experience.html` → `#work-experience` |
 | Project | `experience.html` → `#technical-projects` |
 | Education | `education.html` → `#formal-education` |
 | Certification | `education.html` → `#certifications` |
 | Association / leadership | `community.html` → `#associations-leadership` |
 | Volunteering | `community.html` → `#volunteering` |
-
+| New country / travel story | `pages/travel.html` inline `<script>` — add to the `travelStories` and `countryNames` objects, keyed by ISO 3166-1 alpha-2 code |
 
 ---
 
 ## CSS Design System
 
+### Fonts (Google Fonts, loaded in every page's `<head>`)
+```
+https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&family=Work+Sans:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap
+```
+- **Literata** (serif) — headlines, pull-quotes, quote-cards, the nav wordmark, italic emphasis.
+- **Work Sans** — body text, nav, labels, metadata.
+- **Caveat** (handwriting) — a small accent touch only (e.g. the "— Maria" signoff, photo captions). Don't force it into places it doesn't fit naturally.
+
 ### CSS Variables (defined in `:root`)
 ```css
---primary-color: #ffffff
---secondary-color: #f5f5f5
---accent-color: #333333
---text-color: #212121
---light-grey: #e0e0e0
---medium-grey: #9e9e9e
---dark-grey: #616161
---link-color: #2962ff
---link-hover: #0039cb
---success-color: #0039cb
---error-color: #f44336
---shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05)
---shadow-md: 0 4px 10px rgba(0, 0, 0, 0.1)
---shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.15)
---border-radius: 8px
---transition-speed: 0.3s
+--primary-color: #F6F1E8   /* paper background */
+--secondary-color: #EFE7D8
+--card-bg: rgba(255, 255, 255, 0.55)
+--ink: #2B241C
+--terracotta: #B5592E
+--olive: #5F6B4A
+--gold: #C98A2B
+--muted: #6B6153
+--muted-light: #8A8071
+--dark-grey: #5A5142
+--font-headline: 'Literata', Georgia, serif
+--font-body: 'Work Sans', ...
+--font-hand: 'Caveat', cursive
+--inset-left: max(28px, 9vw)
+--inset-right: max(28px, 5vw)
 ```
+`accent-color`/`link-color` alias to terracotta for backward compatibility with older component classes.
 
-### Typography
-- **Font**: Inter (Google Fonts), weights 300/400/500/600/700
-- **Base**: 16px, line-height 1.6
-- **H1**: 2.5rem, weight 500
-- **H2**: 2rem, weight 600 — has `::after` underline (50px wide, 3px, `#333`)
-- **H3**: 1.5rem, weight 600
+The body background is a subtle grain: two overlaid `radial-gradient` dot patterns (`rgba(43,36,28,0.035)` / `rgba(43,36,28,0.025)`, 26px/17px), not a flat fill or an SVG noise filter.
 
 ### Layout
-- **Container**: `width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px`
+- **Container**: `width: 90%; max-width: 1200px; margin: 0 auto`, with asymmetric left/right padding (`--inset-left` / `--inset-right`) for the editorial off-center feel — the left inset is deliberately larger than the right.
 - **Section padding**: `4rem 0`
-- **Card gap**: `2rem`
 
-### Grid Systems
-| Class | Columns |
-|---|---|
-| `.articles-grid` | `auto-fill, minmax(280px, 1fr)` |
-| `.events-grid` | `auto-fill, minmax(280px, 1fr)` |
-| `.awards-grid` | `auto-fill, minmax(280px, 1fr)` |
-| `.certification-grid` | `repeat(auto-fill, minmax(280px, 1fr))` |
-| `.featured-grid` | `repeat(4, 1fr)` → 2 cols at 950px → 1 col at 480px |
+### Colors in use
+Terracotta, olive, and gold should appear throughout as kickers, left-border colors on quote-cards, timeline dots, and photo-placeholder blocks — not confined to one spot. Vary which color is used across repeated elements (e.g. don't make every quote-card terracotta).
 
 ### Responsive Breakpoints
 | Breakpoint | Changes |
 |---|---|
-| `max-width: 950px` | Hamburger menu, grid column adjustments |
-| `max-width: 768px` | Font 15px, single-column grids, flex column footer |
+| `max-width: 950px` | Nav stacks into a plain vertical list (no drawer), grid column adjustments |
+| `max-width: 768px` | Font 15px, single-column grids/timeline rows, flex column footer |
 | `max-width: 480px` | Font 14px, container 95%, profile image 140px |
 
-### Card Hover Effect (all cards)
-```css
-transform: translateY(-5px);
-box-shadow: var(--shadow-md);
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-```
+### Avoid
+Gradients as backgrounds, emoji, rounded-corner cards with a left accent border as the *only* device, Inter/Roboto/Arial/Fraunces, numbered lists in flowing prose, a hamburger/drawer nav.
 
 ---
 
@@ -400,15 +230,17 @@ All functionality is vanilla JS, no libraries. Key behaviors:
 
 | Feature | Trigger | Effect |
 |---|---|---|
-| Mobile menu | Hamburger click | Toggle `.active` on nav |
 | Smooth scroll | Anchor `#id` click | `window.scrollTo`, offset 80px |
 | Active nav link | Page load | Matches `pathname` to nav links |
 | Section animations | IntersectionObserver | Adds `.section-visible` when section enters viewport |
 | Section nav active | Scroll (IntersectionObserver) | Updates `.section-nav-links a.active` |
+| Expand/collapse lists | Click on `.show-more-btn` | Toggles `.expandable-hidden` on items inside `[data-expandable]` |
 | Card hover | mouseenter/mouseleave | `translateY(-8px)` or `translateX(8px)` |
 | Back-to-top button | Scroll > 300px | Shows dynamically created button |
 | Lazy images | Page load | Adds `loading="lazy"` to all `<img>` |
 | External links | Page load | Adds `rel="noopener noreferrer"` |
+
+There is no contact-form handler — `contact.html` has no form, by design (email-only). `travel.html` has its own small inline `<script>` for the map's hover/story behavior (page-specific, not in `script.js`).
 
 Do not modify `script.js` unless specifically asked. All animation and interaction logic is handled automatically for any element with the right class names.
 
@@ -416,11 +248,15 @@ Do not modify `script.js` unless specifically asked. All animation and interacti
 
 ## Footer
 
-All pages share the same footer structure. The copyright year is `2026`.
+All pages share the same footer structure: a `.footer-nav-links` list mirroring the header nav, then the copyright line and social icons. The copyright year is `2026`.
 
 ```html
 <footer>
   <div class="container">
+    <ul class="footer-nav-links">
+      <li><a href="...">About</a></li>
+      <!-- ...same links as header nav... -->
+    </ul>
     <div class="footer-content">
       <div class="footer-info">
         <p>&copy; 2026 Maria Loureiro. All rights reserved.</p>
@@ -457,9 +293,9 @@ All pages under `pages/` reference assets with `../` prefix:
 
 - Do not introduce build tools, npm, or bundlers — this is intentionally static.
 - Do not add new CSS files; add styles to `css/styles.css`.
-- Do not add new JS files; add scripts to `js/script.js`.
+- Do not add new JS files; add scripts to `js/script.js` (page-specific one-off logic, like the travel map, can stay in an inline `<script>` on that page).
 - Do not change the font or color system without being asked.
+- Do not reintroduce a hamburger/drawer nav.
 - Do not add emoji to titles or content unless the existing entry already has one.
-- Do not change date formats — always `Month Day, Year`.
 - Do not reorder content — it is always newest-first within each section.
-- Do not add descriptions or summaries to article/event cards — the existing pattern has no description field, only title, publisher/event, date, and link.
+- Do not add a contact form back to `contact.html` without being asked — it was deliberately removed in favor of direct email.

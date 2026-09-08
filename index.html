@@ -8,26 +8,22 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&family=Work+Sans:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/images/maria-profile-favicon.png">
 </head>
 <body>
   <header>
     <div class="container">
       <nav class="navbar">
+        <a href="index.html" class="wordmark">Maria Loureiro</a>
         <ul class="nav-links">
           <li><a href="index.html" class="active">About</a></li>
-          <li><a href="pages/experience.html">Work & Projects</a></li>
+          <li><a href="pages/experience.html">Work</a></li>
           <li><a href="pages/education.html">Education</a></li>
-          <li><a href="pages/community.html">Community Impact</a></li>
-          <li><a href="pages/media.html">Media & Recognition</a></li>
-          <li><a href="pages/contact.html">Contacts</a></li>
+          <li><a href="pages/community.html">Community</a></li>
+          <li><a href="pages/media.html">Media</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
         </ul>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
       </nav>
     </div>
   </header>
@@ -41,8 +37,9 @@
             <div class="profile-container">
               <img src="assets/images/maria-profile.jpeg" alt="Maria Loureiro" class="profile-image">
             </div>
-            <h1><strong>I build the AI that speeds up drug discovery — and the bridges between the people funding it and the people building it.</strong></h1>
-            <p class="lead">Machine Learning Engineer at <a href="https://www.loka.com" target="_blank" rel="noopener noreferrer" class="text-link">Loka</a>, World Economic Forum Global Shaper, and someone who moves as easily between a model's training loop and a boardroom of pharmaceutical executives.</p>
+            <span class="kicker">Maria Loureiro</span>
+            <h1>I build AI for drug discovery. On a good week that means faster trials — on a chaotic one, it means explaining to a pharma executive why the model isn't a <em class="text-link" style="font-style: italic;">black box</em> (it just feels like one).</h1>
+            <p class="lead">AI. Healthcare. Pharma. Digital and community literacy. Equal access to innovation. Not necessarily in that order of chaos.</p>
           </div>
         </div>
       </div>
@@ -64,7 +61,7 @@
             <span class="credibility-label">Executive Innovation</span>
             <span class="credibility-value">GenH</span>
           </a>
-          <a href="pages/media.html#articles-publications" class="credibility-item">
+          <a href="pages/media.html#writing" class="credibility-item">
             <span class="credibility-label">Published Writer</span>
             <span class="credibility-value">AI &amp; Life Sciences</span>
           </a>
@@ -72,83 +69,83 @@
       </div>
     </section>
 
-    <!-- Narrative Section -->
+    <!-- Narrative Sections -->
     <section id="narrative" class="narrative">
       <div class="container">
-        <h2>What I do, and why it fits together</h2>
-        <div class="narrative-blocks">
-          <div class="narrative-block">
-            <div class="narrative-block-header">
-              <h3>AI for healthcare and biotech</h3>
+
+        <div class="narrative-story">
+          <span class="kicker" style="color: var(--terracotta);">Loka</span>
+          <div class="narrative-row">
+            <div class="narrative-copy">
+              <p>Day to day, I build generative AI pipelines for biotech and pharma companies — the kind of infrastructure meant to help researchers get to better treatments faster. Right now that happens at Loka, where I've been an ML engineer for a bit over two years (recently "Advanced," which mostly means more scope and a title I still trip over saying out loud).</p>
             </div>
-            <div class="narrative-block-body">
-              <p>I'm a Machine Learning Engineer at Loka, developing AI systems that accelerate drug discovery — helping bring drugs to patients faster and at lower cost, to make access more democratic.</p>
-              <a href="pages/experience.html" class="text-link">See the work &rarr;</a>
-            </div>
-          </div>
-          <div class="narrative-block">
-            <div class="narrative-block-header">
-              <h3>Community and intergenerational bridging</h3>
-            </div>
-            <div class="narrative-block-body">
-              <p>I co-design executive innovation programs at GenH, facilitating dialogue between senior pharmaceutical leaders and young professionals, and lead digital upskilling initiatives for high school students from underrepresented communities as a member of the Global Shapers Community.</p>
-              <a href="pages/community.html" class="text-link">See the community work &rarr;</a>
-            </div>
-          </div>
-          <div class="narrative-block">
-            <div class="narrative-block-header">
-              <h3>A global perspective</h3>
-            </div>
-            <div class="narrative-block-body">
-              <p>In 2026 I represented Portugal as one of 40 Global Shapers worldwide selected to attend the World Economic Forum's Annual Meeting in Davos — a role that keeps me thinking about AI and healthcare leadership at a global, not just local, scale.</p>
-              <a href="pages/media.html#awards" class="text-link">Read about Davos &rarr;</a>
+            <div class="photo-placeholder photo-placeholder--terracotta photo-placeholder--rotate-right">
+              <div class="photo-placeholder-block"></div>
+              <span class="photo-placeholder-caption">Bogotá — Loka's Explorer Programme, 2026</span>
             </div>
           </div>
         </div>
+
+        <div class="narrative-story narrative-story--reverse">
+          <span class="kicker" style="color: var(--olive);">Gen-H</span>
+          <div class="narrative-row">
+            <div class="photo-placeholder photo-placeholder--olive photo-placeholder--rotate-left">
+              <div class="photo-placeholder-block"></div>
+              <span class="photo-placeholder-caption">Pharma Bridge Day, Lisbon</span>
+            </div>
+            <div class="narrative-copy">
+              <p>I help run the conversations between people who've led pharma companies for decades and the people about to inherit them — because most of the time, those two groups don't actually talk. That means coordinating executive programs, a 100+ person alumni network, and events like Pharma Bridge Day (cold and rainy in both Lisbon and Basel that day — at least we were consistent).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="narrative-story">
+          <span class="kicker" style="color: var(--gold);">Global Shapers</span>
+          <div class="narrative-row narrative-row--text-only">
+            <div class="narrative-copy">
+              <p>I lead a small digital upskilling project for high schoolers in Matosinhos who wouldn't otherwise get near this stuff. A year in, it's less about the tech itself and more about not letting access to it get decided by your postcode.</p>
+            </div>
+          </div>
+        </div>
+
+        <blockquote class="pull-quote">Honestly? A lot of this comes down to luck. I said yes more than I said no, worked with people whose values I actually shared, and never let anyone convince me I had to pick one lane and specialize.</blockquote>
+
+        <div class="narrative-story narrative-story--reverse">
+          <span class="kicker" style="color: var(--terracotta);">Davos 2026</span>
+          <div class="narrative-row">
+            <div class="photo-placeholder photo-placeholder--terracotta photo-placeholder--rotate-left">
+              <div class="photo-placeholder-block"></div>
+              <span class="photo-placeholder-caption">Davos, January 2026</span>
+            </div>
+            <div class="narrative-copy">
+              <p>In January I was one of 40 Global Shapers worldwide — and the only Portuguese one — invited to the World Economic Forum's Annual Meeting. I went in with two questions about AI in healthcare and youth employment, and came out with a lot more than I expected and still no real master plan for how I got there.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="travel-teaser-paragraph">Somewhere in the middle of all that I've also ended up in twenty-odd countries — for a scuba course in Mexico, a week of cycling in the Netherlands, a passport I once lost in Singapore. If you're curious — <a href="pages/travel.html" class="text-link">see the map &rarr;</a></p>
       </div>
     </section>
 
     <!-- Selected Writing Section -->
     <section id="writing" class="writing">
       <div class="container">
-        <h2>Selected writing</h2>
+        <h2>Some things I've written</h2>
         <div class="writing-grid">
-          <a href="https://www.loka.com/blog/a-loka-engineer-in-davos" target="_blank" rel="noopener noreferrer" class="writing-card">
-            <blockquote class="writing-pullquote">A Loka Engineer Goes to Davos</blockquote>
-            <div class="writing-meta">
-              <span class="writing-publisher">LOKA</span>
-              <span class="writing-date">February 18, 2026</span>
-            </div>
-          </a>
-          <a href="https://www.loka.com/blog/showdown-in-ai-drug-discovery-llms-vs-diffusion-models" target="_blank" rel="noopener noreferrer" class="writing-card">
-            <blockquote class="writing-pullquote">Showdown in AI Drug Discovery: LLMs vs Diffusion Models</blockquote>
-            <div class="writing-meta">
-              <span class="writing-publisher">LOKA</span>
-              <span class="writing-date">February 5, 2025</span>
-            </div>
-          </a>
-          <a href="https://pubs.acs.org/doi/abs/10.1021/acsnano.4c12963#" target="_blank" rel="noopener noreferrer" class="writing-card">
-            <blockquote class="writing-pullquote">Toward Resolving Heterogeneous Mixtures of Nanocarriers in Drug Delivery Systems</blockquote>
-            <div class="writing-meta">
-              <span class="writing-publisher">ACS Nano</span>
-              <span class="writing-date">January 8, 2025</span>
-            </div>
-          </a>
+          <div class="quote-card quote-card--terracotta quote-card--rotate-1">
+            <p>"As empresas que tiverem coragem de confiar nas suas equipas, de lhes dar autonomia e condições para viverem bem vão ganhar uma enorme vantagem."</p>
+            <span class="quote-card-attribution">On salary vs. trust as the real retention lever — Público, 2025</span>
+          </div>
+          <div class="quote-card quote-card--olive quote-card--rotate-2">
+            <p>"Tech leadership is informal, proximate, and transparent. Pharma leadership is still hierarchical and distant — and as the industry competes for digital talent, that gap stops being a culture question and starts being a business one."</p>
+            <span class="quote-card-attribution">On tech vs. pharma leadership — Netfarma, 2024</span>
+          </div>
+          <div class="quote-card quote-card--gold quote-card--rotate-3">
+            <p>"Hassabis's biggest worry wasn't economic disruption — it was a philosophical question about human purpose. I chose optimism anyway: I'd rather be an optimist who's wrong than a pessimist who's right."</p>
+            <span class="quote-card-attribution">Dispatch from the WEF Annual Meeting 2026 — Loka</span>
+          </div>
         </div>
         <p class="writing-more"><a href="pages/media.html" class="text-link">See all articles, talks, and awards &rarr;</a></p>
-      </div>
-    </section>
-
-    <!-- Travel Teaser Section -->
-    <section id="travel-teaser" class="travel-teaser">
-      <div class="container">
-        <a href="pages/travel.html" class="travel-teaser-card">
-          <div class="travel-teaser-text">
-            <h3>A few of the places I've been</h3>
-            <p>A small, personal map of where I've lived, worked, and traveled — from a road trip through Mexico to three months in Colombia.</p>
-          </div>
-          <span class="travel-teaser-link">View the map &rarr;</span>
-        </a>
       </div>
     </section>
 
@@ -157,11 +154,31 @@
       <div class="container">
         <div class="cta-box">
           <h2>Let's talk</h2>
-          <p>Speaking invitations, collaborations, and roles at the intersection of AI and healthcare — I'd love to hear from you.</p>
-          <a href="pages/contact.html" class="contact-button">
-            <span class="contact-icon">✺</span>
-            Get in touch
-          </a>
+          <p>Whether it's a talk, a project, or you just want to say hi — this is where to find me.</p>
+          <div class="contact-methods" style="max-width: 420px; margin: 0 auto 1.5rem;">
+            <a href="mailto:m4ria.loureiro@gmail.com" class="contact-method">
+              <div class="method-icon">✺</div>
+              <div class="method-detail">
+                <span class="method-label">Email</span>
+                <span class="method-value">m4ria.loureiro@gmail.com</span>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/mariamloureiro/" target="_blank" rel="noopener noreferrer" class="contact-method">
+              <div class="method-icon">✺</div>
+              <div class="method-detail">
+                <span class="method-label">LinkedIn</span>
+                <span class="method-value">linkedin.com/in/mariamloureiro</span>
+              </div>
+            </a>
+            <a href="https://github.com/M4riaLoureiro" target="_blank" rel="noopener noreferrer" class="contact-method">
+              <div class="method-icon">✺</div>
+              <div class="method-detail">
+                <span class="method-label">GitHub</span>
+                <span class="method-value">github.com/M4riaLoureiro</span>
+              </div>
+            </a>
+          </div>
+          <p style="font-family: var(--font-hand); font-size: 1.3rem; color: var(--muted);">— Maria</p>
         </div>
       </div>
     </section>
@@ -169,6 +186,14 @@
 
   <footer>
     <div class="container">
+      <ul class="footer-nav-links">
+        <li><a href="index.html">About</a></li>
+        <li><a href="pages/experience.html">Work</a></li>
+        <li><a href="pages/education.html">Education</a></li>
+        <li><a href="pages/community.html">Community</a></li>
+        <li><a href="pages/media.html">Media</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
       <div class="footer-content">
         <div class="footer-info">
           <p>&copy; 2026 Maria Loureiro. All rights reserved.</p>

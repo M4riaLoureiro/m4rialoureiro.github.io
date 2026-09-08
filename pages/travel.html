@@ -8,26 +8,22 @@
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&family=Work+Sans:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="../assets/images/maria-profile-favicon.png">
 </head>
 <body>
   <header>
     <div class="container">
       <nav class="navbar">
+        <a href="../index.html" class="wordmark">Maria Loureiro</a>
         <ul class="nav-links">
           <li><a href="../index.html">About</a></li>
-          <li><a href="experience.html">Work & Projects</a></li>
+          <li><a href="experience.html">Work</a></li>
           <li><a href="education.html">Education</a></li>
-          <li><a href="community.html">Community Impact</a></li>
-          <li><a href="media.html">Media & Recognition</a></li>
-          <li><a href="contact.html">Contacts</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="media.html">Media</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
       </nav>
     </div>
   </header>
@@ -35,10 +31,11 @@
   <main>
     <section class="travel-section">
       <div class="container">
+        <span class="kicker">Places I've Been</span>
         <div class="section-header">
-          <h2>Places I've Been</h2>
+          <h2>Twenty-odd countries so far — most of it just curiosity, not work.</h2>
         </div>
-        <p class="section-description">A small, personal map of where I've lived, worked, and traveled. Hover or tab through the highlighted countries to see a story.</p>
+        <p class="section-description">A scuba course here, a lost passport there. A small, personal map. Every highlighted country is somewhere I've actually been — the ones in deeper terracotta are the few I've written a short story about, and those are the ones you can hover or tab through for the story.</p>
 
         <div class="travel-map-layout">
           <div class="travel-map-wrap">
@@ -449,6 +446,11 @@
           </aside>
         </div>
 
+        <div class="travel-legend">
+          <div class="travel-legend-row"><span class="travel-legend-swatch travel-legend-swatch--terracotta"></span> Visited &amp; has a story</div>
+          <div class="travel-legend-row"><span class="travel-legend-swatch travel-legend-swatch--gold"></span> Visited</div>
+        </div>
+
         <p class="travel-map-attribution">Map: <a href="https://github.com/flekschas/simple-world-map" target="_blank" rel="noopener noreferrer" class="text-link">Simple World Map</a> by Al MacDonald &amp; Fritz Lekschas, licensed <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer" class="text-link">CC BY-SA 3.0</a>.</p>
       </div>
     </section>
@@ -456,6 +458,14 @@
 
   <footer>
     <div class="container">
+      <ul class="footer-nav-links">
+        <li><a href="../index.html">About</a></li>
+        <li><a href="experience.html">Work</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
       <div class="footer-content">
         <div class="footer-info">
           <p>&copy; 2026 Maria Loureiro. All rights reserved.</p>
@@ -533,7 +543,11 @@
         const el = document.getElementById(code.toLowerCase());
         if (!el) return;
 
-        el.classList.add('country-visited');
+        const hasStory = Boolean(travelStories[code]);
+        el.classList.add(hasStory ? 'country-has-story' : 'country-visited-only');
+
+        if (!hasStory) return;
+
         el.setAttribute('tabindex', '0');
         el.setAttribute('role', 'button');
         el.setAttribute('aria-label', countryNames[code]);

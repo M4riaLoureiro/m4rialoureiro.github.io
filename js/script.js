@@ -1,21 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile menu toggle
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
-  
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
-  });
-  
-  // Close menu when clicking a nav link
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('active');
-    });
-  });
-
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -65,40 +48,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  // Handle form submissions (if form exists)
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mvkowwoe';
+  // Expand/collapse "show more" lists
+  document.querySelectorAll('[data-expandable]').forEach(list => {
+    const btn = list.querySelector('.show-more-btn');
+    const hiddenItems = list.querySelectorAll('.expandable-hidden');
+    if (!btn || hiddenItems.length === 0) return;
 
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const formStatus = document.getElementById('formStatus');
-      formStatus.textContent = 'Sending message...';
-      formStatus.className = 'form-status sending';
-
-      fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        body: new FormData(contactForm),
-        headers: { 'Accept': 'application/json' }
-      })
-        .then(response => {
-          if (response.ok) {
-            formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
-            formStatus.className = 'form-status success';
-            contactForm.reset();
-          } else {
-            formStatus.textContent = 'Something went wrong. Please try emailing me directly.';
-            formStatus.className = 'form-status error';
-          }
-        })
-        .catch(() => {
-          formStatus.textContent = 'Something went wrong. Please try emailing me directly.';
-          formStatus.className = 'form-status error';
-        });
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      hiddenItems.forEach(item => item.classList.toggle('expandable-hidden', expanded));
+      btn.setAttribute('aria-expanded', String(!expanded));
+      btn.querySelector('.label').textContent = expanded ? 'Show more' : 'Show less';
     });
-  }
-  
+  });
+
   // Add responsive handling to external links
   document.querySelectorAll('a[target="_blank"]').forEach(link => {
     // Add appropriate aria labels
