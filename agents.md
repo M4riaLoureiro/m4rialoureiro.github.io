@@ -177,11 +177,11 @@ Every active page has a `<meta name="description">` tag. When adding a new page,
 
 ### Fonts (Google Fonts, loaded in every page's `<head>`)
 ```
-https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&family=Work+Sans:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap
+https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&family=Work+Sans:wght@300;400;500;600&family=Homemade+Apple&display=swap
 ```
-- **Literata** (serif) — headlines, pull-quotes, quote-cards, the nav wordmark, italic emphasis.
+- **Literata** (serif) — headlines, quote-cards, the nav wordmark, italic emphasis.
 - **Work Sans** — body text, nav, labels, metadata.
-- **Caveat** (handwriting) — a small accent touch only (e.g. the "— Maria" signoff, photo captions). Don't force it into places it doesn't fit naturally.
+- **Homemade Apple** (handwriting) — a small accent touch only (e.g. the pull-quote, the "Maria" signoff, photo captions). Don't force it into places it doesn't fit naturally.
 
 ### CSS Variables (defined in `:root`)
 ```css
@@ -197,7 +197,7 @@ https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7
 --dark-grey: #5A5142
 --font-headline: 'Literata', Georgia, serif
 --font-body: 'Work Sans', ...
---font-hand: 'Caveat', cursive
+--font-hand: 'Homemade Apple', cursive
 --inset-left: max(28px, 9vw)
 --inset-right: max(28px, 5vw)
 ```
