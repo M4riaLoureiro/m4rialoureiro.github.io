@@ -438,6 +438,7 @@ header {
 
 .nav-links {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
@@ -458,16 +459,16 @@ header {
   position: relative;
 }
 
-.nav-links a:hover {
+.nav-links a:hover:not(.lang-switch-option) {
   color: var(--olive);
 }
 
-.nav-links a.active {
+.nav-links a.active:not(.lang-switch-option) {
   font-weight: 600;
   color: var(--olive);
 }
 
-.nav-links a.active::after {
+.nav-links a.active:not(.lang-switch-option)::after {
   content: '';
   position: absolute;
   bottom: -5px;
@@ -1857,7 +1858,7 @@ footer a {
 }
 
 /* Header navigation hover effect */
-.nav-links a::before {
+.nav-links a:not(.lang-switch-option)::before {
   content: '';
   position: absolute;
   bottom: -5px;
@@ -1868,11 +1869,11 @@ footer a {
   transition: width 0.3s ease;
 }
 
-.nav-links a:hover::before {
+.nav-links a:hover:not(.lang-switch-option)::before {
   width: 100%;
 }
 
-.nav-links a.active::before {
+.nav-links a.active:not(.lang-switch-option)::before {
   width: 0;
 }
 
