@@ -477,6 +477,42 @@ header {
   background-color: var(--olive);
 }
 
+.lang-switch-item {
+  display: flex;
+  align-items: center;
+}
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--muted-light);
+  border-radius: 999px;
+}
+
+.lang-switch-option {
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+.lang-switch-option:hover {
+  color: var(--terracotta);
+}
+
+.lang-switch-option.active {
+  background-color: var(--terracotta);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
 /* Hero Section */
 .hero {
   display: flex;

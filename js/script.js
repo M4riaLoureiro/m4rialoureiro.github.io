@@ -58,7 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const expanded = btn.getAttribute('aria-expanded') === 'true';
       hiddenItems.forEach(item => item.classList.toggle('expandable-hidden', expanded));
       btn.setAttribute('aria-expanded', String(!expanded));
-      btn.querySelector('.label').textContent = expanded ? 'Show more' : 'Show less';
+      const labelMore = btn.dataset.labelMore || 'Show more';
+      const labelLess = btn.dataset.labelLess || 'Show less';
+      btn.querySelector('.label').textContent = expanded ? labelMore : labelLess;
     });
   });
 
