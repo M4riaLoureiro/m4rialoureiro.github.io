@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Maria Loureiro — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2B241C; --terracotta:#B5592E; --olive:#5F6B4A; --gold:#C98A2B;
+  --muted:#6B6153; --muted-light:#8A8071;
+  --serif:'Literata',Georgia,serif;
+  --sans:'Work Sans','Helvetica Neue',Arial,sans-serif;
+}
+@page{ size:A4; margin:12mm 14mm; }
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:var(--sans); font-size:8.95pt; line-height:1.39;
+  color:var(--ink); background:#fff;
+  -webkit-font-smoothing:antialiased;
+}
+a{ color:inherit; text-decoration:none; }
+a.lnk{
+  color:inherit;
+  border-bottom:0.5px solid rgba(181,89,46,0.55);
+  padding-bottom:0.4px;
+}
+.contact a.lnk{ border-bottom-color:rgba(181,89,46,0.4); }
+.d a.lnk, .org a.lnk{ color:inherit; }
+
+/* ---------- header ---------- */
+.name{
+  font-family:var(--serif); font-size:21pt; font-weight:500;
+  letter-spacing:-0.015em; line-height:1;
+}
+.tagline{
+  font-family:var(--serif); font-style:italic; font-size:11pt;
+  color:var(--terracotta); margin-top:4px;
+}
+.contact{
+  font-size:8.3pt; color:var(--muted); margin-top:6px; letter-spacing:0.01em;
+}
+.contact span{ color:var(--muted-light); padding:0 5px; }
+header{ padding-bottom:9px; border-bottom:1.6px solid var(--terracotta); }
+
+/* ---------- profile ---------- */
+.profile{
+  margin-top:8px; font-size:9.4pt; line-height:1.5; color:#3a3228;
+  max-width:96%;
+}
+
+/* ---------- section ---------- */
+section{ margin-top:9px; break-inside:auto; }
+h2{
+  font-family:var(--sans); font-size:7.6pt; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.14em; color:var(--terracotta);
+  padding-bottom:3px; margin-bottom:8px;
+  border-bottom:0.6px solid rgba(43,36,28,0.22);
+}
+
+/* ---------- highlight strip ---------- */
+.highlights{ list-style:none; margin-top:2px; }
+.highlights li{
+  position:relative; padding-left:13px; margin-bottom:3.5px;
+  font-size:9.2pt; line-height:1.45;
+}
+.highlights li::before{
+  content:''; position:absolute; left:0; top:5.2px;
+  width:5px; height:5px; border-radius:50%;
+}
+.highlights li:nth-child(1)::before{ background:var(--terracotta); }
+.highlights li:nth-child(2)::before{ background:var(--olive); }
+.highlights li:nth-child(3)::before{ background:var(--gold); }
+.highlights strong{ font-weight:600; }
+
+/* ---------- entries ---------- */
+.entry{ display:grid; grid-template-columns:76px 1fr; gap:14px; margin-bottom:6px; break-inside:avoid; }
+.entry:last-child{ margin-bottom:0; }
+.date{
+  font-size:7.7pt; color:var(--muted-light); letter-spacing:0.02em;
+  padding-top:1.8px; line-height:1.35;
+}
+.role{ font-family:var(--serif); font-size:10.4pt; font-weight:600; line-height:1.25; }
+.org{ font-size:8.6pt; color:var(--muted); margin-top:1px; }
+.org em{ font-style:italic; color:var(--muted-light); }
+.stack{ font-size:8.1pt; color:var(--muted-light); margin-top:1.5px; font-style:italic; }
+ul.pts{ list-style:none; margin-top:4px; }
+ul.pts li{ position:relative; padding-left:10px; margin-bottom:2.2px; line-height:1.42; }
+ul.pts li::before{
+  content:''; position:absolute; left:0; top:6.1px;
+  width:3.5px; height:3.5px; border-radius:50%; background:rgba(43,36,28,0.4);
+}
+
+/* compact single-line rows */
+.row{ display:grid; grid-template-columns:76px 1fr; gap:14px; margin-bottom:3.6px; break-inside:avoid; }
+.row:last-child{ margin-bottom:0; }
+.row .t{ font-weight:500; }
+.row .d{ color:var(--muted); }
+.row .t b{ font-family:var(--serif); font-weight:600; font-size:9.6pt; }
+
+.skills p{ margin-bottom:3.5px; }
+.skills b{ font-weight:600; }
+
+.note{ font-size:8.2pt; color:var(--muted-light); font-style:italic; margin-top:5px; }
+
+.pagebreak{ break-before:page; }
+.p2head{
+  font-family:var(--serif); font-style:italic; font-size:9.2pt;
+  color:var(--muted-light); padding-bottom:7px;
+  border-bottom:1.6px solid var(--terracotta); margin-bottom:2px;
+}
+.p2head b{ font-style:normal; font-weight:600; color:var(--ink); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="name">Maria Loureiro</div>
+  <div class="tagline">Machine Learning Engineer &middot; AI for Drug Discovery &amp; Life Sciences</div>
+  <div class="contact">Porto, Portugal<span>&middot;</span><a class="lnk" href="mailto:m4ria.loureiro@gmail.com">m4ria.loureiro@gmail.com</a><span>&middot;</span><a class="lnk" href="https://www.linkedin.com/in/mariamloureiro">linkedin.com/in/mariamloureiro</a><span>&middot;</span><a class="lnk" href="https://m4rialoureiro.github.io">m4rialoureiro.github.io</a></div>
+</header>
+
+<p class="profile">
+I build generative AI systems for biotech and pharma companies, and I spend the rest of my time getting the people who have led that industry for decades talking to the generation about to inherit it. Five years across a biotech startup, an AI consultancy and an executive network.
+</p>
+
+<section>
+  <h2>Selected Highlights</h2>
+  <ul class="highlights">
+    <li><strong>Davos 2026.</strong> 1 of 40 Global Shapers selected worldwide, and the only Portuguese delegate, to the World Economic Forum Annual Meeting.</li>
+    <li><strong>Generative AI for drug discovery.</strong> Agentic AI pipelines on AWS for five-plus US biotechs and a biopharma with ongoing clinical trials.</li>
+    <li><strong>Executive convening in pharma.</strong> Pharma Bridge Day (200+ participants) and three innovation programmes for leadership across ten of the largest pharma companies.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Professional Experience</h2>
+
+  <div class="entry">
+    <div class="date">Jul 2024<br>&ndash; Present</div>
+    <div>
+      <div class="role">Advanced Machine Learning Engineer, Life Sciences</div>
+      <div class="org"><a class="lnk" href="https://www.loka.com/">Loka</a> &middot; Portugal (Remote) &middot; <em>promoted from Machine Learning Engineer</em></div>
+      <ul class="pts">
+        <li>Design and ship generative AI and agentic pipelines on AWS for biotech and pharma clients, including screening candidate molecules for binding affinity against target proteins to make laboratory studies more efficient.</li>
+        <li>Work across five-plus US biotechs and one biopharma with ongoing clinical trials, cutting the time and cost of identifying viable drug targets and molecules.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="date">Sep 2024<br>&ndash; Present</div>
+    <div>
+      <div class="role">Senior Business Manager</div>
+      <div class="org"><a class="lnk" href="https://www.thegenh.com/">GenH</a> &middot; Portugal (Remote) &middot; <em>concurrent with Loka</em></div>
+      <ul class="pts">
+        <li>Run Pharma Bridge Day, connecting Portuguese pharma professionals with peers in Boston, Basel and beyond: 50+ in the room in Lisbon, 200+ participants in total.</li>
+        <li>Deliver three executive innovation programmes of roughly fifteen participants each, for C-suite and country-level leadership drawn from around ten of the largest pharmaceutical companies. Manage one direct report.</li>
+        <li>Manage a 100-member alumni network of Portuguese professionals across Europe and the Americas, running initiatives that keep senior leaders and early-career members in contact.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="date">Jul 2021<br>&ndash; Jun 2024</div>
+    <div>
+      <div class="role">Biomedical Data Scientist</div>
+      <div class="org"><a class="lnk" href="https://www.ilof.tech/">iLoF</a> &middot; Porto, Portugal &middot; <em>Acting Data Science Coordinator (Apr&ndash;Jun 2024) &middot; Biomedical Data Scientist (2022&ndash;24) &middot; Data Scientist Intern (2021&ndash;22)</em></div>
+      <ul class="pts">
+        <li>Designed and shipped an internal application giving the whole company 24/7 access to data generated continuously by 24-hour experiments, adopted by 15&ndash;20 people as the standard way to view and analyse results.</li>
+        <li>As acting coordinator, planned and managed data science work company-wide within a sprint framework, working between the development and product design teams to surface and resolve risks.</li>
+        <li>Developed an end-to-end deep learning pipeline for encoding and classifying time-series optical data, including techniques to mitigate the influence of confounding clinical factors.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="date">2019<br>&ndash; 2021</div>
+    <div>
+      <div class="role">Earlier research &amp; data science roles</div>
+      <div class="org">CerCo &ndash; Centre de Recherche Cerveau et Cognition, Toulouse &middot; NILG.AI &middot; CINTESIS, Porto</div>
+      <ul class="pts">
+        <li>Automated longitudinal marmoset brain segmentation at CerCo, replacing a manual process with a standardised pipeline. Built a live AI content-retrieval demo at NILG.AI. Ran a systematic review and signal-processing analysis of fetal heart rate traces at CINTESIS, published in <em>Frontiers in Pediatrics</em>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <div class="entry">
+    <div class="date">2017 &ndash; 2022</div>
+    <div>
+      <div class="role">MSc &amp; BSc in Bioengineering (Biomedical Engineering)</div>
+      <div class="org">Faculty of Engineering, University of Porto (FEUP) &middot; Grade A</div>
+      <div class="stack">Thesis: Transfer Learning Techniques for Classification of Biological Samples using Optical Fingerprint &middot; Erasmus+ research placement at CerCo, Toulouse (2021)</div>
+    </div>
+  </div>
+</section>
+
+<div class="pagebreak"></div>
+
+<div class="p2head"><b>Maria Loureiro</b> &nbsp;&middot;&nbsp; Leadership, awards and public work</div>
+
+<section>
+  <h2>Leadership &amp; Community</h2>
+
+  <div class="entry">
+    <div class="date">Nov 2024<br>&ndash; Present</div>
+    <div>
+      <div class="role">Global Shaper</div>
+      <div class="org"><a class="lnk" href="https://www.globalshapers.org/about">Global Shapers Community (World Economic Forum)</a> &middot; Porto Hub</div>
+      <ul class="pts">
+        <li>Selected by application as 1 of 40 Global Shapers worldwide, and the only Portuguese delegate, to the WEF Annual Meeting 2026 in Davos.</li>
+        <li>Lead the Digital Upskilling project in Matosinhos, teaching technology, automation and AI to high school students in a public school. Around 50 students reached so far.</li>
+        <li>Organised the 2025 Iberian retreat, bringing 80 Shapers from Spain and Portugal together with invited guests in Porto.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="date">Apr 2025 &ndash; Present</div>
+    <div><span class="t"><b>Volunteer Speaker</b>, Inspiring Girls Portugal</span> &mdash; <span class="d">Speak in schools about my own path, to show teenagers that career direction is not decided by gender.</span></div>
+  </div>
+  <div class="row">
+    <div class="date">Oct 2025 &ndash; Feb 2026</div>
+    <div><span class="t"><b>Mentor</b>, Geek Girls Portugal</span> &mdash; <span class="d">Mentor women in technology on navigating their careers and developing their skills.</span></div>
+  </div>
+  <div class="row">
+    <div class="date">2023</div>
+    <div><span class="t"><b>Organiser</b>, MIT Critical Data Health Datathon</span> &mdash; <span class="d">Two-day event bringing teams together to build data-driven solutions to healthcare problems.</span></div>
+  </div>
+  <div class="row">
+    <div class="date">2018 &ndash; 2022</div>
+    <div><span class="t"><b>President</b>, NEB FEUP/ICBAS Bioengineering Students' Association</span> &mdash; <span class="d">Led a 45-person organisation (2021/22); previously Vice President of the Supervisory Board and Biomedical Engineering representative.</span></div>
+  </div>
+</section>
+
+
+<section>
+  <h2>Awards &amp; Honours</h2>
+  <div class="row"><div class="date">2026</div><div><span class="t"><b>World Economic Forum Annual Meeting Honoree</b> &middot; Global Shapers Community</span><br><span class="d">One of 40 Global Shapers selected worldwide, and the only Portuguese delegate, in Davos.</span></div></div>
+  <div class="row"><div class="date">2025</div><div><span class="t"><b>Winner, GenAI Bootcamp Hackathon</b> &middot; Loka with AWS</span><br><span class="d">An AI genomics solution automating variant analysis under responsible-AI practices, cutting analysis from six hours to one hour per case.</span></div></div>
+  <div class="row"><div class="date">2021</div><div><span class="t"><b>1st Place, Eurekathon</b> &middot; NOS</span><br><span class="d">A 50-hour data-driven competition on sustainable urban mobility in Matosinhos.</span></div></div>
+  <div class="row"><div class="date">2021</div><div><span class="t"><b>2nd Place, Age-i-Tank</b></span><br><span class="d">Developed a healthcare venture and pitched the investment deck to a venture capital jury.</span></div></div>
+</section>
+
+<section>
+  <h2>Selected Publications</h2>
+  <div class="row"><div class="date">Feb 2026</div><div><span class="t"><a class="lnk" href="https://www.loka.com/blog/a-loka-engineer-in-davos">A Loka Engineer Goes to Davos</a></span> &mdash; <span class="d">Loka</span></div></div>
+  <div class="row"><div class="date">Nov 2025</div><div><span class="t"><a class="lnk" href="https://www.netfarma.pt/tecnologicas-vs-farmaceuticas-onde-estao-os-melhores-lideres/">Tecnol&oacute;gicas vs Farmac&ecirc;uticas: onde est&atilde;o os melhores l&iacute;deres?</a></span> &mdash; <span class="d">Netfarma</span></div></div>
+  <div class="row"><div class="date">Apr 2025</div><div><span class="t"><a class="lnk" href="https://www.publico.pt/2025/04/03/p3/cronica/sera-salario-principal-culpado-dificuldade-empresas-reter-talento-2128015">Ser&aacute; o sal&aacute;rio o principal culpado pela dificuldade das empresas em reter talento?</a></span> &mdash; <span class="d">P&uacute;blico</span></div></div>
+  <div class="row"><div class="date">Feb 2025</div><div><span class="t"><a class="lnk" href="https://www.loka.com/blog/showdown-in-ai-drug-discovery-llms-vs-diffusion-models">Showdown in AI Drug Discovery: LLMs vs Diffusion Models</a></span> &mdash; <span class="d">Loka</span></div></div>
+  <div class="row"><div class="date">Jan 2025</div><div><span class="t"><a class="lnk" href="https://pubs.acs.org/doi/abs/10.1021/acsnano.4c12963">Toward Resolving Heterogeneous Mixtures of Nanocarriers in Drug Delivery Systems</a></span> &mdash; <span class="d">ACS Nano</span></div></div>
+  <div class="row"><div class="date">Aug 2021</div><div><span class="t"><a class="lnk" href="https://www.frontiersin.org/journals/pediatrics/publications/10.3389/fped.2021.661400/full">Systematic Review of Intrapartum Fetal Heart Rate Spectral Analysis</a></span> &mdash; <span class="d">Frontiers in Pediatrics</span></div></div>
+  <p class="note">Full list of 14 articles and papers at <a class="lnk" href="https://m4rialoureiro.github.io/pages/media.html">m4rialoureiro.github.io</a></p>
+</section>
+
+<section>
+  <h2>Speaking &amp; Press</h2>
+  <div class="row">
+    <div class="date">Speaking</div>
+    <div class="d">Twelve-plus invited talks, panels and podcast appearances since 2021, including the Geek Girls Conference Portugal, Universidade de Aveiro, ENEEB XX, the Symposium on Bioengineering at FEUP, and <a class="lnk" href="https://www.youtube.com/watch?v=BahcFo1URkE"><em>Prova Oral</em> on RTP Antena 3</a>. Themes: AI in healthcare and the path from university into the field.</div>
+  </div>
+  <div class="row">
+    <div class="date">Press</div>
+    <div class="d">Featured or interviewed in Expresso, P&uacute;blico, RTP Antena 3, RDP Internacional and Ordem dos Engenheiros, on AI in healthcare and representing Portugal at Davos 2026.</div>
+  </div>
+</section>
+
+<section class="skills">
+  <h2>Skills, Certifications &amp; Languages</h2>
+  <p><b>Technical</b> &nbsp; Generative AI and agentic systems &middot; large language models &middot; machine learning &middot; AWS cloud infrastructure &middot; Python &middot; end-to-end ML pipelines &middot; biomedical and time-series data</p>
+  <p><b>Certifications</b> &nbsp; Claude Certified Architect &ndash; Foundations (Anthropic, 2026) &middot; AWS Certified Machine Learning Engineer &ndash; Associate &middot; AWS Certified AI Practitioner</p>
+  <p><b>Languages</b> &nbsp; Portuguese (native) &middot; English (professional)</p>
+</section>
+
+</body>
+</html>

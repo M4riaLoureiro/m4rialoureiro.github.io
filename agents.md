@@ -32,9 +32,18 @@ A static personal portfolio website for Maria Loureiro (ML Engineer, Bioengineer
 │   ├── community.html                # Associations & volunteering
 │   ├── contact.html                  # Contact methods (no contact form — email only)
 │   └── travel.html                   # Personal travel map (secondary page, not in main nav)
+├── cv/
+│   ├── cv.html                       # CV source of truth (standalone, not part of the site)
+│   ├── build.sh                      # Renders cv.html -> the PDF
+│   └── Maria-Loureiro-CV.pdf         # Built output, committed
 └── .github/
     └── copilot-instructions.md
 ```
+
+`cv/` is a separate deliverable, not a page of the site. It shares the visual system
+but is never linked from the nav. **To build, update, or retarget the CV, use the
+`cv` skill** (`.claude/skills/cv/`) — it carries the content decisions, the
+two-page constraint, and the list of things deliberately left off.
 
 ---
 
